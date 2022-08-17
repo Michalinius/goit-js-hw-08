@@ -8,7 +8,7 @@ player.on("timeupdate", throttle(({seconds}) => {
     localStorage.setItem("videoplayer-current-time", seconds);
     const item = localStorage.getItem("videoplayer-current-time");
     console.log(item);
-}, 1000));
+}, 2000));
 
 player.setCurrentTime(localStorage.getItem("videoplayer-current-time")).then(function(seconds) {
     // seconds = the actual time that the player seeked to
