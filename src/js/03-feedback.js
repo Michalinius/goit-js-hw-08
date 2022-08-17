@@ -6,12 +6,11 @@ let data = {
     email:"",
     message:""
 }
-try {
-test = JSON.parse(localStorage.getItem("feedback-form-state"));
+
+data = JSON.parse(localStorage.getItem("feedback-form-state"));
 form.elements.email.value=data.email;
 form.elements.message.value=data.message;
-data = test;}
-catch {console.log("data is null")}
+
 
 
 form.addEventListener("input",(event) => {
