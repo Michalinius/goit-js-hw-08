@@ -6,15 +6,17 @@ let data = {
     email:"",
     message:""
 }
-data = JSON.parse(localStorage.getItem("feedback-form-state"));
+try {
+test = JSON.parse(localStorage.getItem("feedback-form-state"));
 form.elements.email.value=data.email;
 form.elements.message.value=data.message;
-
+data = test;}
+catch {console.log("data is null")}
 
 
 form.addEventListener("input",(event) => {
 
-        data.emailemail = form.elements.email.value; 
+        data.email = form.elements.email.value; 
         data.message = form.elements.message.value; 
     
     
@@ -25,8 +27,8 @@ form.addEventListener("input",(event) => {
 })
 
 form.addEventListener("submit", (event) => {
-    event.preventDefault;
     console.log(data)
     form.reset();
+    event.preventDefault;
 })
 
