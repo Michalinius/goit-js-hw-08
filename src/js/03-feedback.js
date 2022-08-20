@@ -1,6 +1,7 @@
 import throttle from "lodash.throttle";
 
 const form = document.querySelector("form");
+const button =document.querySelector("button")
 
 let data = {
     email:"",
@@ -8,26 +9,25 @@ let data = {
 }
 
 data = JSON.parse(localStorage.getItem("feedback-form-state"));
+if (data !== null) {
 form.elements.email.value=data.email;
-form.elements.message.value=data.message;
+form.elements.message.value=data.message;}
+else {data = {email:"", message:""}}
 
 
-
-form.addEventListener("input",(event) => {
+form.addEventListener("input",throttle((event) => {
 
         data.email = form.elements.email.value; 
         data.message = form.elements.message.value; 
     
-    
-    console.log(data);
-    //console.log(event.currentTarget);
     localStorage.setItem("feedback-form-state", JSON.stringify(data));
-    console.log(localStorage.getItem("feedback-form-state"));
-})
+},500))
 
 form.addEventListener("submit", (event) => {
-    console.log(data)
+  event.preventDefault;
+    console.log(data);
+    localStorage.clear;
     form.reset();
-    event.preventDefault;
 })
+
 
