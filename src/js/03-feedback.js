@@ -24,9 +24,9 @@ form.addEventListener("input",throttle((event) => {
 },500))
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault;
+  event.preventDefault();
     console.log(data);
-    localStorage.clear;
+    localStorage.clear();
     form.reset();
 })
 
